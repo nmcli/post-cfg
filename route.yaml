@@ -1,0 +1,15 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: post-route
+  namespace: post
+  labels:
+    type: sharded
+spec:
+  host: cys.post.com
+  to:
+    kind: Service
+    name: post-service
+  path: /
+  port:
+    targetPort: 8080
